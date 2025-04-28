@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penetration Tester Portfolio - Yamashita</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"> </head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">&lt;Yamashita /&gt;</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="blog-post-adcs.html">Blog</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>Hi, I'm <span id="typed-name"></span></h1>
+                <p class="subtitle">Penetration Tester</p>
+                <p>Securing digital assets through meticulous testing and analysis.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+            <div class="scroll-down">
+                <a href="#about"><span></span>Scroll</a>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>// About Me</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Driven by a passion for cybersecurity, I specialize in identifying and mitigating vulnerabilities before malicious actors can exploit them. With a strong foundation in network security, web application testing, and exploit development, I thrive on the challenge of breaking systems ethically to strengthen them.</p>
+                    <p>My approach combines technical expertise with a creative mindset, constantly seeking new ways to bypass defenses and understand attack vectors. I believe in continuous learning and staying ahead of the evolving threat landscape.</p>
+                    <p>Certifications: [CNSP, PJPT]</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/logo.jpg" alt="Profile Picture Placeholder">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section bg-darker">
+            <h2>// Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fas fa-network-wired"></i> Network Pentesting</div>
+                <div class="skill-item"><i class="fas fa-laptop-code"></i> Web App Security</div>
+                <div class="skill-item"><i class="fas fa-bug"></i> Vulnerability Analysis</div>
+                <div class="skill-item"><i class="fas fa-user-secret"></i> Social Engineering</div>
+                <div class="skill-item"><i class="fas fa-terminal"></i> Exploit Development</div>
+                <div class="skill-item"><i class="fas fa-mobile-alt"></i> Mobile App Testing</div>
+                <div class="skill-item"><i class="fas fa-cloud"></i> Cloud Security</div>
+                <div class="skill-item"><i class="fas fa-shield-alt"></i> Security Tools (Nmap, Burp, Metasploit)</div>
+                <div class="skill-item"><i class="fas fa-code"></i> Scripting (Python, Bash)</div>
+                <div class="skill-item"><i class="fas fa-file-alt"></i> Reporting & Remediation</div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2>// Projects & Experience</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>Project Alpha (Web App Pentest)</h3>
+                        <p>Performed comprehensive black-box testing on a complex e-commerce platform. Identified SQLi, XSS, and Broken Access Control vulnerabilities. Provided detailed report and remediation advice.</p>
+                        <span class="project-tag">Web Security</span>
+                        <span class="project-tag">SQLi</span>
+                        <span class="project-tag">XSS</span>
+                        <span class="project-tag">LFI</span>
+                        <span class="project-tag">SSRF</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                     <div class="project-card-content">
+                        <h3>Network Infrastructure Audit</h3>
+                        <p>Conducted an internal network penetration test for a mid-sized company. Discovered misconfigured services, weak credentials, and potential lateral movement paths.</p>
+                        <span class="project-tag">Network Security</span>
+                        <span class="project-tag">Active Directory</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                     <div class="project-card-content">
+                        <h3>CTF Challenge: HackTheBox - [Machine Name]</h3>
+                        <p>Successfully compromised [Machine Name] on HackTheBox, demonstrating skills in enumeration, privilege escalation, and creative problem-solving.</p>
+                         <span class="project-tag">CTF</span>
+                         <span class="project-tag">Privilege Escalation</span>
+                         <span class="project-tag">Pivoting</span>
+                         <span class="project-tag">Port-Forwarding</span>
+                    </div>
+                </div>
+                 </div>
+        </section>
+
+        <section id="contact" class="content-section bg-darker">
+            <h2>// Get In Touch</h2>
+            <p>Interested in collaborating or discussing a security challenge? Reach out!</p>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Yamashita012?tab=repositories" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Yamashita. All rights reserved.</p>
+        <p>Built with passion and code.</p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script> <script src="js/script.js"></script>
+</body>
+</html>
