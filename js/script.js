@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const typedNameElement = document.getElementById('typed-name');
     if (typedNameElement) {
         const typed = new Typed('#typed-name', {
-            strings: ['Yamashita', 'a Penetration Tester', 'Programmer', 'a Problem Solver'], // Customize these strings
+            strings: ['Yamashita', 'a Penetration Tester', 'a Programmer', 'a Problem Solver'], // Customize these strings
             typeSpeed: 70,
             backSpeed: 40,
             loop: true,
