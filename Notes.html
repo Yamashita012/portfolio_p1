@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Arsenal - Yamashita</title>
+    <style>
+        :root {
+            --primary-red: #c41e3a;
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --border-color: #2a2a2a;
+            --accent-gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, rgba(196, 30, 58, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(196, 30, 58, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a0000 100%);
+            border-bottom: 2px solid var(--primary-red);
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(196, 30, 58, 0.5), 0 0 30px rgba(196, 30, 58, 0.3); }
+            50% { text-shadow: 0 0 30px rgba(196, 30, 58, 0.8), 0 0 40px rgba(196, 30, 58, 0.5); }
+        }
+
+        .subtitle {
+            color: var(--accent-gold);
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        .intro-text h2 {
+            color: var(--accent-gold);
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .intro-text p {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .arsenal-button {
+            position: relative;
+            background: linear-gradient(135deg, var(--card-bg) 0%, #2a0000 100%);
+            border: 3px solid var(--primary-red);
+            border-radius: 15px;
+            padding: 60px 80px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .arsenal-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .arsenal-button:hover::before {
+            left: 100%;
+        }
+
+        .arsenal-button:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.4);
+            border-color: var(--accent-gold);
+        }
+
+        .arsenal-button .icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .arsenal-button:hover .icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .arsenal-button .title {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .arsenal-button:hover .title {
+            color: var(--accent-gold);
+        }
+
+        .arsenal-button .description {
+            font-size: 1em;
+            color: var(--text-secondary);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Weapon specific styling */
+        .web-hacking {
+            border-color: var(--primary-red);
+        }
+
+        .web-hacking .icon {
+            color: var(--primary-red);
+        }
+
+        .active-directory {
+            border-color: var(--accent-gold);
+        }
+
+        .active-directory .icon {
+            color: var(--accent-gold);
+        }
+
+        .active-directory .title {
+            color: var(--accent-gold);
+        }
+
+        .active-directory:hover .title {
+            color: var(--primary-red);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 2px solid var(--primary-red);
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 10;
+            background: var(--dark-bg);
+        }
+
+        .footer-quote {
+            font-style: italic;
+            color: var(--accent-gold);
+            margin-top: 10px;
+        }
+
+        /* Decorative elements */
+        .sword-left, .sword-right {
+            position: fixed;
+            font-size: 15em;
+            color: rgba(196, 30, 58, 0.05);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .sword-left {
+            top: 20%;
+            left: -5%;
+            transform: rotate(-45deg);
+        }
+
+        .sword-right {
+            bottom: 20%;
+            right: -5%;
+            transform: rotate(135deg);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+                letter-spacing: 3px;
+            }
+
+            .intro-text h2 {
+                font-size: 1.5em;
+            }
+
+            .button-container {
+                gap: 30px;
+            }
+
+            .arsenal-button {
+                min-width: 250px;
+                padding: 40px 50px;
+            }
+
+            .arsenal-button .icon {
+                font-size: 4em;
+            }
+
+            .arsenal-button .title {
+                font-size: 1.5em;
+            }
+
+            .sword-left, .sword-right {
+                display: none;
+            }
+        }
+
+        /* Particle effect */
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: float 3s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) translateX(50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="sword-left">🗡️</div>
+    <div class="sword-right">🗡️</div>
+
+    <header>
+        <h1>⚔️ HACKING ARSENAL ⚔️</h1>
+        <p class="subtitle">"Choose Your Weapon, Master Your Path"</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            <h2>Select Your Domain of Warfare</h2>
+            <p>
+                Every warrior must choose their battlefield. Each discipline requires dedication, 
+                precision, and an unwavering commitment to mastery. Whether you strike through 
+                web applications or command the domain of Windows networks, your arsenal awaits.
+            </p>
+        </div>
+
+        <div class="button-container">
+            <a href="web-hacking-notes.html" class="arsenal-button web-hacking">
+                <div class="icon">🔥</div>
+                <div class="title">Web Hacking</div>
+                <div class="description">
+                    Master the art of web application penetration testing.<br>
+                    SQLi • XSS • SSRF • LFI • API Security
+                </div>
+            </a>
+
+            <a href="active-directory-notes.html" class="arsenal-button active-directory">
+                <div class="icon">👑</div>
+                <div class="title">Active Directory</div>
+                <div class="description">
+                    Dominate Windows domain networks with precision.<br>
+                    Kerberos • Lateral Movement • Domain Dominance
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Yamashita - Cyber Samurai</p>
+        <p class="footer-quote">
+            "The greatest victory is that which requires no battle.<br>
+            But when battle is necessary, strike with knowledge and precision."
+        </p>
+    </footer>
+
+    <script>
+        // Create floating particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = Math.random() * window.innerHeight + 'px';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 3000);
+        }
+
+        // Generate particles periodically
+        setInterval(createParticle, 500);
+
+        // Add hover sound effect (optional - requires audio file)
+        const buttons = document.querySelectorAll('.arsenal-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                // Add subtle scaling animation
+                this.style.transform = 'translateY(-10px) scale(1.05)';
+            });
+
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '1') {
+                window.location.href = 'web-hacking-notes.html';
+            } else if (e.key === '2') {
+                window.location.href = 'active-directory-notes.html';
+            }
+        });
+
+        // Add ripple effect on click
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = ripple.style.height = '100px';
+                ripple.style.background = 'rgba(212, 175, 55, 0.5)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                const rect = this.getBoundingClientRect();
+                ripple.style.left = (e.clientX - rect.left - 50) + 'px';
+                ripple.style.top = (e.clientY - rect.top - 50) + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
